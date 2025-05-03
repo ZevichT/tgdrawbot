@@ -74,7 +74,6 @@ class UsersDrawRepository:
     @classmethod
     async def add_participant(cls, user_id: str, draw_id: int) -> None:
         async with new_session as session:
-            print(f'@{user_id}')
             participant_dict = {'user_id': f'@{user_id}', 'draw_id': draw_id}
             participant = UsersDrawOrm(**participant_dict)
             session.add(participant)
