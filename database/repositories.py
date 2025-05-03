@@ -31,7 +31,7 @@ class DrawsRepository:
 
 
     @classmethod
-    async def get_id(cls, name: str) -> int:
+    async def get_id(cls, name: str) -> int | str:
         async with new_session as session:
             query = select(DrawsOrm.id).where(DrawsOrm.name == name)
             response = await session.execute(query)
